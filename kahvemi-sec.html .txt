@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☕ Kahvemi Seç!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f0e6;
+            color: #4b3832;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: #6f4e37;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #593f31;
+        }
+
+        #kahve-oneri {
+            margin-top: 25px;
+            font-size: 17px;
+            text-align: center;
+            max-width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>☕ Kahvemi Seç!</h1>
+
+    <button onclick="kahveSec()">Bugünün Kahvesi ☕</button>
+
+    <div id="kahve-oneri"></div>
+
+    <script>
+        const kahveler = [
+            { adi: "Espresso", yapilisi: "Espresso makinesinde yüksek basınçla ince öğütülmüş kahveden elde edilir.", tarihce: "İlk kez 20. yüzyıl başlarında İtalya'da yapılmıştır." },
+            { adi: "Latte", yapilisi: "Bir shot espresso üzerine buharla ısıtılmış süt eklenir.", tarihce: "Latte kelimesi İtalyanca'da 'süt' demektir ve kökeni İtalya'dır." },
+            { adi: "Cappuccino", yapilisi: "Espresso üzerine eşit miktarda süt ve süt köpüğü eklenir.", tarihce: "İtalya'da ortaya çıkmış ve adını Kapuçin keşişlerinin cübbelerinden almıştır." },
+            { adi: "Türk Kahvesi", yapilisi: "İnce öğütülmüş kahve soğuk suyla cezvede kısık ateşte pişirilir.", tarihce: "16. yüzyıldan beri Osmanlı kültüründe özel bir yere sahiptir." },
+            { adi: "Mocha", yapilisi: "Espresso üzerine sıcak süt, çikolata sosu veya şurubu eklenir.", tarihce: "Yemen'in Mocha bölgesinden ismini alır ve çikolata aromasıyla ünlüdür." }
+        ];
+
+        function kahveSec() {
+            const secilenKahve = kahveler[Math.floor(Math.random() * kahveler.length)];
+            document.getElementById('kahve-oneri').innerHTML = `
+                <strong>${secilenKahve.adi}</strong><br><br>
+                <strong>Nasıl Yapılır?</strong><br>${secilenKahve.yapilisi}<br><br>
+                <strong>İlginç Bilgi:</strong><br>${secilenKahve.tarihce}
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
